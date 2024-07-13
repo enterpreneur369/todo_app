@@ -40,6 +40,7 @@ public class HelloController implements Initializable {
         // Configura la etiqueta de cabecera y el campo de búsqueda
         lblHeader.setText("Has completado 0 de 3 TODOS");
         txtFinder.setPromptText("Cortar la cebolla");
+        btnNewTODO.setText("Nuevo TODO");
 
         // Configura las columnas de la tabla
         TableColumn<TODO, Integer> id = new TableColumn<>("ID");

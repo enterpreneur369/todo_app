@@ -4,12 +4,15 @@ package com.micompany.todosapp;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 import java.util.function.Consumer;
 
 public class NewTodoController {
+    @FXML
+    private Label lblNewTODO; // Label header del modal
     @FXML
     private TextArea txaTODODescription; // Área de texto para la descripción del nuevo TODO
     @FXML
@@ -45,6 +48,9 @@ public class NewTodoController {
     // Método inicializador que se llama después de que se carga el archivo FXML
     @FXML
     private void initialize() {
+        lblNewTODO.setText("Crear nuevo TODO");
+        btnCancelCreateNewTODO.setText("Cancelar");
+        btnCreateNewTODO.setText("Agregar");
         // Configura el evento para cerrar la ventana al hacer clic en el botón de cancelar
         btnCancelCreateNewTODO.setOnAction(event -> stage.close());
 
