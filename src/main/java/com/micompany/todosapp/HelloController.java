@@ -122,7 +122,7 @@ public class HelloController implements Initializable {
 
             // Configura el nuevo escenario para el modal
             Stage stage = new Stage();
-            stage.setTitle("Create New TODO");
+            stage.setTitle("Crear nuevo TODO");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(root));
 
