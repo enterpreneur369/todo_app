@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 
 public class HelloController implements Initializable {
     @FXML
@@ -61,6 +62,9 @@ public class HelloController implements Initializable {
         select.setCellValueFactory(new PropertyValueFactory<>("select"));
         delete.setCellValueFactory(new PropertyValueFactory<>("delete"));
 
+        // Configura el filtro de búsqueda
+        configureFilter();
+
         // Actualiza la etiqueta de cabecera
         updateHeaderLabel();
     }
@@ -82,6 +86,28 @@ public class HelloController implements Initializable {
         if (todoToDelete != null) {
             todos.remove(todoToDelete);
             updateHeaderLabel();
+        }
+    }
+
+    // Método para configurar el filtro de búsqueda
+    private void configureFilter() {
+        // Crea un listener para el campo de texto de búsqueda
+        txtFinder.textProperty().addListener((observable, oldValue, newValue) -> {
+            // Filtra la lista de TODOS basado en la descripción ingresada
+            filterTodos(newValue);
+        });
+    }
+
+    // Método para filtrar la lista de TODOS
+    private void filterTodos(String filterText) {
+        // Si no hay texto en el filtro, muestra todos los TODOS
+        if (filterText == null || filterText.isEmpty()) {
+            tblTodoList.setItems(todos);
+        } else {
+            // Aplica un filtro basado en la descripción del TODO
+            Predicate<TODO> todoFilter = todo -> todo.getDescription().toLowerCase().contains(filterText.toLowerCase());
+            ObservableList<TODO> filteredTodos = todos.filtered(todoFilter);
+            tblTodoList.setItems(filteredTodos);
         }
     }
 
