@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="modal" alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.micompany.todosapp.NewTodoController">
+   <children>
+      <Label fx:id="lblNewTODO" text="Create New TODO" />
+      <TextArea fx:id="txaTODODescription" prefHeight="200.0" prefWidth="200.0" />
+      <HBox alignment="CENTER" spacing="20.0">
+         <children>
+            <Button fx:id="btnCancelCreateNewTODO" text="Cancel" />
+            <Button fx:id="btnCreateNewTODO" text="Create" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
